@@ -1,6 +1,7 @@
 package com.takahashi.leandro.githubaac.data
 
 import android.arch.lifecycle.LiveData
+import android.util.Log
 import com.takahashi.leandro.githubaac.data.dao.UserDAO
 import com.takahashi.leandro.githubaac.data.local.entity.User
 import com.takahashi.leandro.githubaac.data.remote.UserWebService
@@ -32,8 +33,9 @@ constructor(private val webservice: UserWebService, private val userDao: UserDAO
                         executor.execute {
                             val user = response.body()
                             user?.lastRefresh = Date()
-                            if (user != null)
-                                userDao.save(user)
+                            if (user != null){
+                                Log.e("USER",user.toString())
+                                userDao.save(user)}
                         }
                     }
 
