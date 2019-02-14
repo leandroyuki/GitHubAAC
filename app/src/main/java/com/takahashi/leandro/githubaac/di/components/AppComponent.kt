@@ -2,9 +2,7 @@ package com.takahashi.leandro.githubaac.di.components
 
 import android.app.Application
 import com.takahashi.leandro.githubaac.MyApp
-import com.takahashi.leandro.githubaac.di.modules.ActivityModule
-import com.takahashi.leandro.githubaac.di.modules.AppModule
-import com.takahashi.leandro.githubaac.di.modules.FragmentModule
+import com.takahashi.leandro.githubaac.di.modules.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -12,7 +10,11 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-        modules = [AndroidSupportInjectionModule::class, ActivityModule::class, FragmentModule::class, AppModule::class]
+        modules = [AndroidSupportInjectionModule::class,
+            ActivityModule::class,
+            FragmentModule::class,
+            ViewModelModule::class,
+            RepositoryModule::class]
 )
 interface AppComponent {
 
